@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { LugaresForm } from './LugaresForm'
 
 export const LugaresList = () => {
-
+    const [show, setShow] = useState(false)
     const lugares=[{
         id:1,
         nombre: 'Playa Salguero',
@@ -10,13 +11,19 @@ export const LugaresList = () => {
         pais: 'Colombia'
     }]
 
+    const activarEdicion=()=>{
+        setShow(!show);
+
+    }
   return (
     <div className='container '>
         <div class="d-grid gap-2 pt-3 pb-3">
             <button class="btn btn-primary" type="button">+ Agregar Lugar</button>
         
          </div>
-        <table class="table table-dark table-striped">
+         <div className='row'>
+            <div className='col-8'>
+            <table class="table table-dark table-striped">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -41,9 +48,9 @@ export const LugaresList = () => {
                                 
                                     
                                
-                                        <button className='btn btn-warning'>Editar</button>
+                                        <button className='btn btn-warning' onClick={activarEdicion}>Editar</button>
                                         
-                                        <button className='btn btn-danger'>Editar</button>
+                                        <button className='btn btn-danger'>Eliminar</button>
                                    
                             </td>
                             
@@ -59,6 +66,16 @@ export const LugaresList = () => {
                     
                 </tbody>
         </table>
+
+            </div>
+            <div className='col-4'>
+                {activarEdicion && <LugaresForm/>
+                
+                }
+                   
+            </div>
+         </div>
+        
     </div>
   )
 }

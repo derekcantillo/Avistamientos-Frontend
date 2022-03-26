@@ -1,4 +1,5 @@
 import React from 'react'
+import { EspeciesForm } from './EspeciesForm'
 
 export const EspeciesList = () => {
  const especies=[{
@@ -30,7 +31,9 @@ export const EspeciesList = () => {
             <button class="btn btn-primary" type="button">+ Agregar Especies</button>
         
          </div>
-        <table class="table table-dark table-striped">
+         <div className='row'>
+                <div className='col-8'>
+                <table class="table table-dark table-striped">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -55,7 +58,7 @@ export const EspeciesList = () => {
                                
                                         <button className='btn btn-warning'>Editar</button>
                                         
-                                        <button className='btn btn-danger'>Editar</button>
+                                        <button className='btn btn-danger'>Eliminar</button>
                                    
                             </td>
                             
@@ -71,6 +74,15 @@ export const EspeciesList = () => {
                     
                 </tbody>
         </table>
+
+                </div>
+                <div className='col-4'>
+                    <EspeciesForm/>
+
+                </div>
+         </div>
+        
+        
     </div>
   )
 }

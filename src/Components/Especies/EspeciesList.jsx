@@ -11,10 +11,25 @@ export const EspeciesList = () => {
      orden:'Placentario',
      familia:'Cataceo',
 
- }]
+ },
+ {
+    id:2,
+    nombreComun: 'Delfin',
+    nombreCientifico: 'Delphinidae',
+    genero:'Delphinus',
+    filo:'Eucaria',
+    clase:'Mamifero',
+    orden:'Placentario',
+    familia:'Cataceo',
+
+}]
 
   return (
-    <div className='container pt-5'>
+    <div className='container '>
+        <div class="d-grid gap-2 pt-3 pb-3">
+            <button class="btn btn-primary" type="button">+ Agregar Especies</button>
+        
+         </div>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
@@ -34,11 +49,23 @@ export const EspeciesList = () => {
                             <td>{espe.nombreComun}</td>
                             <td>{espe.nombreCientifico}</td>
                             <td>{espe.genero}</td>
-
+                            <td>
+                                
+                                    
+                               
+                                        <button className='btn btn-warning'>Editar</button>
+                                        
+                                        <button className='btn btn-danger'>Editar</button>
+                                   
+                            </td>
+                            
                         </tr>
                        ))
                    ):(
-                       <td>No hay especies</td>
+                       <tr>
+                         <td>No hay especies</td>
+                       </tr>
+                      
                    )}
                     
                     

@@ -20,7 +20,7 @@ export const AvistamientoCardItem = ({avistamiento, listAvistamientos}) => {
                                 
                                 </div>  
                                     <div className="card-body">
-                                        <h5 className="card-title">{avistamiento.name}s</h5>
+                                        <h5 className="card-title">{avistamiento.autor}</h5>
                                         <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                         <div className="d-grid gap-3 d-md-flex justify-content-md-end">
                                             <button className="btn btn-outline-primary" type="button">Editar</button>

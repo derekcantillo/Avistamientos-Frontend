@@ -13,7 +13,7 @@ export const AvistamientosList = (props) => {
             setAvistamiento(data.avistamientos)
 
         } catch(error){
-
+                console.log()
         }
     };
 

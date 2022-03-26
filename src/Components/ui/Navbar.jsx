@@ -20,21 +20,21 @@ export const Navbar = () => {
 
                     <NavLink 
                         className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                        to="/marvel"
+                        to="/"
                     >
                         Avistamientos
                     </NavLink>
 
                     <NavLink 
                         className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                        to="/dc"
+                        to="/especies"
                     >
                         Especies
                     </NavLink>
 
                     <NavLink 
                         className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                        to="/search"
+                        to="/lugares"
                     >
                         Lugares
                     </NavLink>

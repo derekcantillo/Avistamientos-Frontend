@@ -4,6 +4,17 @@ import * as AvistamientosServer from './AvistamientosServer'
 
 export const AvistamientosList = (props) => {
 
+    const dataCard=[{
+        id:1, 
+        nombreAvistamiento:'Avistamiento Bahia',
+        autor:'Derek Cantillo',
+        nota: 'Avistamiento  encontrado',
+        latitud: '00000000',
+        longitud:'00000000',
+        lugar: 'Salguero',
+        especie: 'Delgifes'
+    }]
+
     const [avistamiento, setAvistamiento] = useState([])
 
     const listAvistamientos = async()=>{
@@ -31,9 +42,9 @@ export const AvistamientosList = (props) => {
         
 
         {
-            avistamiento.map(avis=>(
+            dataCard.map(avis=>(
                 <AvistamientoCardItem key={avis.id}
-                    avistamiento={avistamiento} listAvistamientos={listAvistamientos}
+                    {...avis}
                 />
                     
             

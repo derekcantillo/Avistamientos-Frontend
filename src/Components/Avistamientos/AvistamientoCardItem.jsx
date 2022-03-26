@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom'
 import * as AvistamientoServer from './AvistamientosServer'
 import './effects.css'
 
-export const AvistamientoCardItem = ({avistamiento, listAvistamientos}) => {
+export const AvistamientoCardItem = ({id, nombreAvistamiento, autor, nota, latitud, longitud }) => {
         
 
         
@@ -17,11 +17,14 @@ export const AvistamientoCardItem = ({avistamiento, listAvistamientos}) => {
                    <div className='col-12'>
                    <div className="card text-center">
                             <div className="card-header">
-                                
+                                {nombreAvistamiento}
                                 </div>  
                                     <div className="card-body">
-                                        <h5 className="card-title">{avistamiento.autor}</h5>
-                                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    
+                                        <small className='text-muted'>Latitud: {latitud} | Longitud: {longitud}</small>
+                                        <p className="card-text ">{nota}
+                                        </p>
+                                       
                                         <div className="d-grid gap-3 d-md-flex justify-content-md-end">
                                             <button className="btn btn-outline-primary" type="button">Editar</button>
                                             <button className="btn btn-outline-primary" type="button">Eliminar</button>
@@ -29,7 +32,7 @@ export const AvistamientoCardItem = ({avistamiento, listAvistamientos}) => {
                                         
                                     </div>
                                     <div className="card-footer text-muted">
-                                        
+                                       {autor} 
                                 </div>
                             </div>
     

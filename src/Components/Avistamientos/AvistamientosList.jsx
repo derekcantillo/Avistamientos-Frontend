@@ -24,8 +24,7 @@ export const AvistamientosList = () => {
         listAvistamientos()
       }, []);
     
-
-
+    
     
 
   return (

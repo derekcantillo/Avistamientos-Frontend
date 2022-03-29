@@ -1,29 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { EspeciesForm } from './EspeciesForm'
-
+import * as EspeciesServer from './EspeciesServer'
 export const EspeciesList = () => {
- const especies=[{
-     id:1,
-     nombreComun: 'Delfin',
-     nombreCientifico: 'Delphinidae',
-     genero:'Delphinus',
-     filo:'Eucaria',
-     clase:'Mamifero',
-     orden:'Placentario',
-     familia:'Cataceo',
+ const [especies, setEspecie] = useState([])
 
- },
- {
-    id:2,
-    nombreComun: 'Delfin',
-    nombreCientifico: 'Delphinidae',
-    genero:'Delphinus',
-    filo:'Eucaria',
-    clase:'Mamifero',
-    orden:'Placentario',
-    familia:'Cataceo',
 
-}]
+ const listEspecies = async () => {
+    try {
+      const res = await EspeciesServer.listEspecies()
+      const data = await res.json();
+      setEspecie(data.especies);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    listEspecies()
+  }, []);
+
+ 
 
   return (
     <div className='container '>
@@ -49,9 +45,9 @@ export const EspeciesList = () => {
                        especies.map(espe=>(
                         <tr key={espe.id}>
                             <td>{espe.id}</td>
-                            <td>{espe.nombreComun}</td>
-                            <td>{espe.nombreCientifico}</td>
-                            <td>{espe.genero}</td>
+                            <td>{espe.nameComun}</td>
+                            <td>{espe.nameCientifico}</td>
+                            <td>{espe.id_genero_id}</td>
                             <td>
                                 
                                     

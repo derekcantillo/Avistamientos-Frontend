@@ -4,13 +4,20 @@ import * as AvistamientoServer from './AvistamientosServer'
 import './effects.css'
 import { ModalEdicionForm } from './ModalEdicionForm'
 
-export const AvistamientoCardItem = ({id, nombreAvistamiento, autor, nota, latitud, longitud }) => {
+export const AvistamientoCardItem = ({avistamiento, listAvistamientos}) => {
         
+  
     const [show, setShow]=useState(false);  
 
     const closeModal=()=>setShow(false);
     const openModal=()=>setShow(true);
+
+    const handleDelete = async(avistamientoId) => {
+        await AvistamientoServer.deleteAvistamiento(avistamientoId);
+        listAvistamientos();
+    }
         
+    console.log(avistamiento.name)
 
     return (
 
@@ -21,12 +28,12 @@ export const AvistamientoCardItem = ({id, nombreAvistamiento, autor, nota, latit
                    <div className='col-12'>
                    <div className="card text-center">
                             <div className="card-header">
-                                #{id} | {nombreAvistamiento}
+                                 {avistamiento.name}
                                 </div>  
                                     <div className="card-body">
                                     
-                                        <small className='text-muted'>Latitud: {latitud} | Longitud: {longitud}</small>
-                                        <p className="card-text ">{nota}
+                                        <small className='text-muted'>...</small>
+                                        <p className="card-text ">{avistamiento.autor}
                                         </p>
                                        
                                         <div className="d-grid gap-3 d-md-flex justify-content-md-end">
@@ -36,7 +43,7 @@ export const AvistamientoCardItem = ({id, nombreAvistamiento, autor, nota, latit
                                         
                                     </div>
                                     <div className="card-footer text-muted">
-                                      Autor | {autor} 
+                                      Autor | 
                                 </div>
                             </div>
     

@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import { AvistamientoCardItem } from '../Avistamientos/AvistamientoCardItem';
 import { AvistamientosList } from '../Avistamientos/AvistamientosList';
 import { EspeciesList } from '../Especies/EspeciesList';
 import { LugaresList } from '../Lugares/LugaresList';

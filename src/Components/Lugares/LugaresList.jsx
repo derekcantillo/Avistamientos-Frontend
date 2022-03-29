@@ -1,20 +1,31 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { LugaresForm } from './LugaresForm'
-
+import * as LugaresServer from './LugaresServer'
 export const LugaresList = () => {
     const [show, setShow] = useState(false)
-    const lugares=[{
-        id:1,
-        nombre: 'Playa Salguero',
-        ciudad: 'Santa Marta',
-        departamento: 'Magdalena',
-        pais: 'Colombia'
-    }]
+   
+    const [lugares, setLugares] = useState([])
+    
 
     const activarEdicion=()=>{
         setShow(!show);
 
     }
+
+    const listLugares = async () => {
+        try {
+          const res = await LugaresServer.listLugares();
+          const data = await res.json();
+          setLugares(data.lugares);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    
+      useEffect(() => {
+        listLugares();
+      }, []);
+    
   return (
     <div className='container '>
         <div class="d-grid gap-2 pt-3 pb-3">
@@ -40,8 +51,8 @@ export const LugaresList = () => {
                        lugares.map(lugar=>(
                         <tr key={lugar.id}>
                             <td>{lugar.id}</td>
-                            <td>{lugar.nombre}</td>
-                            <td>{lugar.ciudad}</td>
+                            <td>{lugar.name}</td>
+                            <td>{lugar.id_ciudad_id}</td>
                             <td>{lugar.departamento}</td>
                             <td>{lugar.pais}</td>
                             <td>

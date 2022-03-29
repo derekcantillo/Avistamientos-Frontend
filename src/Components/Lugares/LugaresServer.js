@@ -1,7 +1,7 @@
-const API_URL = "http://127.0.0.1:8000/api/avistamientos/";
+const API_URL = "http://127.0.0.1:8000/api/lugares/";
 
 
-export const listAvistamientos = async () => {
+export const listLugares = async () => {
     return await fetch(API_URL, {method: 'GET'});
 };
 
@@ -26,13 +26,5 @@ export const registerAvistamiento = async (newAvistamiento) => {
             "id_especie_id": String(newAvistamiento.id_especie_id).trim(),
             
         })
-    });
-};
-
-
-
-export const deleteAvistamiento = async (avistamientoId) => {
-    return await fetch(`${API_URL}${avistamientoId}`, {
-        method: 'DELETE'
     });
 };
